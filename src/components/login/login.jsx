@@ -16,7 +16,7 @@ export default function Login({ setToken }) {
   }
 
   return (
-    <div class="login">
+    <div className="login">
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <span>Username</span>
