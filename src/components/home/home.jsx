@@ -1,8 +1,8 @@
 import React from 'react'
 
-import './home.scss'
+import './Home.scss'
 
-export default function home() {
+export default function Home() {
   return (
     <div class="home">
         Welcome, you're logged in!
