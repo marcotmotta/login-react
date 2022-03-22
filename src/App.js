@@ -17,7 +17,9 @@ function App() {
 
   if (!token) {
     return(
-      <Login setToken={setToken} />
+      <div className="App">
+        <Login setToken={setToken} />
+      </div>
     )
   }
 
@@ -25,7 +27,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path="/" element={<Home setToken={setToken} />}/>
         </Routes>
       </Router>
     </div>

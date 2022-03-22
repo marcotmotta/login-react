@@ -2,10 +2,18 @@ import React from 'react'
 
 import './Home.scss'
 
-export default function Home() {
+export default function Home({ setToken }) {
+
+  const logout = () => {
+    setToken(null);
+  }
+
   return (
     <div className="home">
-        Welcome, you're logged in!
+      <div className="home-card">
+        <h3>Welcome, you're logged in!</h3>
+        <button onClick={logout}>Sair</button>
+      </div>
     </div>
   )
 }

@@ -17,12 +17,16 @@ export default function Login({ setToken }) {
 
   return (
     <div className="login">
-      <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <span>Username</span>
-        <input type="text" onChange={e => setUsername(e.target.value)} />
-        <span>Password</span>
-        <input type="password" onChange={e => setPassword(e.target.value)} />
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>LOGIN</h2>
+        <div className="form-group">
+          <span>Username</span>
+          <input required type="text" onChange={e => setUsername(e.target.value)} />
+        </div>
+        <div className="form-group">
+          <span>Password</span>
+          <input required type="password" onChange={e => setPassword(e.target.value)} />
+        </div>
         <button type='submit'>Enter</button>
       </form>
     </div>
