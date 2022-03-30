@@ -7,6 +7,7 @@ export default function Login({ setToken }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    //ideally there would be an api call here
     const token = username;
     setToken(token);
   }
