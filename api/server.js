@@ -1,4 +1,4 @@
-//for config variables
+//get config variables
 require('dotenv').config()
 
 const express = require('express')
