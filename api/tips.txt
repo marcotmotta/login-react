@@ -1,0 +1,6 @@
+mongoose = ferramenta de integração node - mongo
+express = framework de criação de rotas
+
+--save-dev
+dotenv = variaveis de ambiente
+nodemon = ferramenta pra nao precisar fechar o server sempre q att
