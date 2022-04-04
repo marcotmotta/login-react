@@ -14,11 +14,7 @@ export default function Login({ setToken }) {
       method: 'GET'
     }
 
-    axios(args).then(response => console.log(response))
-
-    fetch('http://localhost:4000/users/')
-    .then(response => response.json())
-    .then(json => console.log(json))
+    axios(args).then(response => console.log(response.data))
 
     const token = username;
     setToken(token);

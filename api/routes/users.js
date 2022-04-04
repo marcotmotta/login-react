@@ -13,7 +13,7 @@ router.get('/', async (request, response) => {
     }
 })
 
-// Getting One 62474255a413c30ef50cb2e9
+// Getting One
 router.get('/:id', async (request, response) => {
     try {
         let user = await Users.findById(request.params.id)
