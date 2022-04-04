@@ -10,14 +10,20 @@ export default function Login({ setToken }) {
     e.preventDefault();
   
     let args = {
-      url: 'http://localhost:4000/users/',
+      url: `http://localhost:4000/users/${username}/${password}`,
       method: 'GET'
     }
 
-    axios(args).then(response => console.log(response.data))
+    let data
 
-    const token = username;
-    setToken(token);
+    await axios(args)
+      .then(response => data = response.data)
+
+    if (data.token) {
+      setToken(data.token)
+    } else {
+      alert('Could not find user')
+    }
   }
 
   return (
