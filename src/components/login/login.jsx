@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Login.scss'
+import axios from 'axios'
 
 export default function Login({ setToken }) {
   const [username, setUsername] = useState();
@@ -7,7 +8,18 @@ export default function Login({ setToken }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    //ideally there would be an api call here
+  
+    let args = {
+      url: 'http://localhost:4000/users/',
+      method: 'GET'
+    }
+
+    axios(args).then(response => console.log(response))
+
+    fetch('http://localhost:4000/users/')
+    .then(response => response.json())
+    .then(json => console.log(json))
+
     const token = username;
     setToken(token);
   }
