@@ -13,7 +13,7 @@ router.get('/', async (request, response) => {
     }
 })
 
-// Getting One 62474255a413c30ef50cb2e9
+// Getting One
 router.get('/:id', async (request, response) => {
     try {
         let user = await Users.findById(request.params.id)
@@ -81,5 +81,18 @@ router.delete('/:id', async (request, response) => {
     }
 })
 
+// Autenticate
+router.get('/:username/:password', async (request, response) => {
+    try {
+        let user = await Users.findOne( { "username": request.params.username, "password": request.params.password })
+        if (!user) {
+            return response.json({ message: 'Could not find user' })
+        }
+        response.json( { 'token': (Math.random() + 1).toString(36).substring(2) } )
+    } catch (error) {
+        //server error
+        response.status(500).json({ message: error.message })
+    }
+})
 
 module.exports = router

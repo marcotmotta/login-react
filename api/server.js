@@ -2,8 +2,13 @@
 require('dotenv').config()
 
 const express = require('express')
-const app = express()
+const cors = require('cors')
 const mongoose = require('mongoose')
+
+const app = express()
+
+//add cors headers
+app.use(cors())
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
 

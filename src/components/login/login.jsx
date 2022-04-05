@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Login.scss'
+import axios from 'axios'
 
 export default function Login({ setToken }) {
   const [username, setUsername] = useState();
@@ -7,9 +8,22 @@ export default function Login({ setToken }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    //ideally there would be an api call here
-    const token = username;
-    setToken(token);
+  
+    let args = {
+      url: `http://localhost:4000/users/${username}/${password}`,
+      method: 'GET'
+    }
+
+    let data
+
+    await axios(args)
+      .then(response => data = response.data)
+
+    if (data.token) {
+      setToken(data.token)
+    } else {
+      alert('Could not find user')
+    }
   }
 
   return (
